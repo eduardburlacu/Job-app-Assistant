@@ -1,0 +1,63 @@
+name: Question
+description: Ask a question about using the Job Application Assistant
+title: "[QUESTION] "
+labels: ["question", "help wanted"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your question! Please check the documentation first:
+        - [README.md](https://github.com/yourusername/job-application-assistant/blob/main/README.md)
+        - [Troubleshooting Guide](https://github.com/yourusername/job-application-assistant/blob/main/README.md#troubleshooting)
+
+  - type: textarea
+    id: question
+    attributes:
+      label: What's your question?
+      description: Please be as specific as possible.
+      placeholder: How do I...?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Question Category
+      description: What area is your question about?
+      options:
+        - Installation/Setup
+        - Configuration
+        - Usage (CLI)
+        - Usage (Web Interface)
+        - Docker Deployment
+        - Ollama/LLM Configuration
+        - Troubleshooting
+        - Development/Contributing
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any additional information that might help us answer your question.
+      placeholder: |
+        - Operating System: 
+        - Python Version:
+        - Installation method:
+        - What you've already tried:
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      description: Please confirm you've checked these resources
+      options:
+        - label: I've read the README.md documentation
+          required: true
+        - label: I've checked existing issues for similar questions
+          required: true
+        - label: I've tried the troubleshooting steps
+          required: false
